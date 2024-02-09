@@ -197,6 +197,9 @@ function mergeAndMoveTiles(direction) {
           }
           // cover space
           else {
+            if (NEW_TILES_GRID[row][left_coln_index] > 0) {
+              left_coln_index = column;
+            }
             column++;
           }
         }
@@ -264,6 +267,9 @@ function mergeAndMoveTiles(direction) {
           }
           // cover space
           else {
+            if (NEW_TILES_GRID[row][right_coln_index] > 0) {
+              right_coln_index = column;
+            }
             column--;
           }
         }
@@ -332,6 +338,9 @@ function mergeAndMoveTiles(direction) {
           }
           // cover space
           else {
+            if (NEW_TILES_GRID[top_row_index][column] > 0) {
+              top_row_index = row;
+            }
             row++;
           }
         }
@@ -403,6 +412,9 @@ function mergeAndMoveTiles(direction) {
           }
           // cover space
           else {
+            if (NEW_TILES_GRID[bottom_row_index][column] > 0) {
+              bottom_row_index = row;
+            }
             row--;
           }
         }
@@ -492,3 +504,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// don't insert number 2 when there is no possiblity of moving in the user triggered direction
+// refactor and minimalise merge and move logic
